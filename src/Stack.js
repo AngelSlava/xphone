@@ -27,6 +27,7 @@ export default class Stack {
     this.player.setAttribute('id', this.id);
     this.reConnect = true;
     this.isExpectedClose = false;
+    this.message_incoming = '';
   }
 
   init(params) {
@@ -163,6 +164,9 @@ export default class Stack {
     return this;
   }
 
+  onMessageIn() {
+    return this;
+  }
   makeCall(phoneNumber, type = this.OUTGOING, lvpId = null) {
     if (!this.isOpen()) {
       this.onError({
@@ -315,6 +319,11 @@ export default class Stack {
         this.wsURL = msgValues.url;
         this.close();
         break;
+      case 'message_incoming':
+        this.message_incoming = msgValues.sms_text;
+        this.onMessageIn();
+        break;
+
       default:
         break;
     }
