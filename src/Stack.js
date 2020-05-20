@@ -167,6 +167,20 @@ export default class Stack {
   onMessageIn() {
     return this;
   }
+
+  sendMessage(modemId, groupId, text) {
+    this.send({
+      "info": "message_outgoing",
+      "msg_values": {
+        "modem_id": modemId,
+        "phone_number": groupId,
+        "text": text,
+        "api": 1
+      }
+    });
+    return true;
+  }
+
   makeCall(phoneNumber, type = this.OUTGOING, lvpId = null) {
     if (!this.isOpen()) {
       this.onError({
