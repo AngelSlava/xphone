@@ -164,21 +164,21 @@ export default class Stack {
     return this;
   }
 
-  onMessageIn() {
-    return this;
+  onMessageIn(messageData) {
+    return messageData;
   }
 
   sendMessage(modemId, groupId, text) {
     this.send({
-      "info": "message_outgoing",
-      "msg_values": {
-        "modem_id": modemId,
-        "phone_number": groupId,
-        "text": text,
-        "api": 1
+      info: 'message_outgoing',
+      msg_values: {
+        modem_id: modemId,
+        phone_number: groupId,
+        text,
+        api: 1
       }
-    });
-    return true;
+    })
+    return true
   }
 
   makeCall(phoneNumber, type = this.OUTGOING, lvpId = null) {
@@ -266,6 +266,8 @@ export default class Stack {
     const msgType = msg.msg_type;
     const msgValues = msg.msg_values;
 
+    console.log(msgType)
+
     this.lastMessageDuration = 0;
 
     if (
@@ -335,7 +337,7 @@ export default class Stack {
         break;
       case 'message_incoming':
         this.message_incoming = msgValues.sms_text;
-        this.onMessageIn();
+        this.onMessageIn(msgValues);
         break;
 
       default:

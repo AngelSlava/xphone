@@ -2,6 +2,7 @@ const initXphone = (vm) => {
   const phone = new XPhone()
   /* Call to echo-test */
   phone.onOpen = () => {
+    vm.connected = true
     console.log("Connection opened")
   }
 
@@ -24,6 +25,15 @@ const initXphone = (vm) => {
     console.log("change", call)
   }
 
+  phone.onMessageIn = message => {
+    console.log(message)
+  }
+
+  /* Get new chat message */
+  phone.getMessageIn = () => {
+    console.log('message_incoming', phone.message_incoming)
+  }
+
   /* Destroying the call */
   phone.onDestroy = call => {
     console.log("destroy", call)
@@ -34,7 +44,9 @@ const initXphone = (vm) => {
 const app = new Vue({
   el: '#app',
   data: {
+    connected: false,
     phoneNumber: 200,
+    message: 'Сообщение',
     $phone: null,
     calls: []
   },
@@ -66,6 +78,9 @@ const app = new Vue({
           line, phoneNumber
         }
       })
+    },
+    sendMessage() {
+      this.$phone.sendMessage('1', 'group_386', this.message)
     },
     closeCall(line) {
       this.$phone.finishCall(line)

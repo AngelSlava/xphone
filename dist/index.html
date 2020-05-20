@@ -13,8 +13,17 @@
             <div class="form-group">
               <input v-model="phoneNumber" class="form-control form-control-sm" type="text" />
             </div>
-            <button type="button" class="btn btn-success btn-sm ml-2" @click="makeCall">Эхотест</button>
+            <button type="button" :disabled="!connected" class="btn btn-success btn-sm ml-2" @click="makeCall">Эхотест</button>
           </form>
+
+          <div class="mt-4">
+            <form class="form-inline">
+              <div class="form-group">
+                <input v-model="message" class="form-control form-control-sm" type="text" />
+              </div>
+              <button type="button" :disabled="!connected" class="btn btn-success btn-sm ml-2" @click="sendMessage">Отправить сообщение</button>
+            </form>
+          </div>
         </div>
         <div class="col-md-8">
           <ul class="list-group">
