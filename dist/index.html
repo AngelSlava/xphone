@@ -3,7 +3,31 @@
   <head>
     <meta charset="UTF-8">
     <title>Production</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   </head>
   <body>
-  <script type="text/javascript" src="xphone.js"></script></body>
+    <div id="app" class="container pt-3">
+      <div class="row">
+        <div class="col-md-4">
+          <form class="form-inline">
+            <div class="form-group">
+              <input v-model="phoneNumber" class="form-control form-control-sm" type="text" />
+            </div>
+            <button type="button" class="btn btn-success btn-sm ml-2" @click="makeCall">Эхотест</button>
+          </form>
+        </div>
+        <div class="col-md-8">
+          <ul class="list-group">
+            <li v-for="call in allCals" class="list-group-item d-flex justify-content-between align-items-center">
+              <span>{{ call.phoneNumber }}</span>
+              <button class="btn btn-danger btn-sm" @click="closeCall(call.line)">Finish call</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="xphone.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
 </html>
