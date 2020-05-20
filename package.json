@@ -1,5 +1,5 @@
 {
-  "name": "xphone",
+  "name": "xphone-xchat",
   "version": "1.0.4",
   "description": "The WebSocket/WebRTC library by lirax.ua (PBX Cloud Platform)",
   "main": "./dist/xphone.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/romangit/xphone.git"
+    "url": "https://github.com/AngelSlava/xphone"
   },
   "keywords": [
     "voip",

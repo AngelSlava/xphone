@@ -1,5 +1,4 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const libraryName = 'XPhone';
@@ -7,10 +6,7 @@ const libraryName = 'XPhone';
 module.exports = {
   entry: './src/Stack.js',
   plugins: [
-    new CleanWebpackPlugin(['dist']),
-    new HtmlWebpackPlugin({
-      title: 'Production',
-    }),
+    new CleanWebpackPlugin(['dist'])
   ],
   module: {
     rules: [
