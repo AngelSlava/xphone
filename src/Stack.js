@@ -113,9 +113,9 @@ export default class Stack {
 
   send(message) {
     if (this.isOpen()) {
-      this.socket.send(JSON.stringify(message));
+      this.socket.send(JSON.stringify(message))
     }
-    return 0;
+    return 0
   }
 
   sendInfo(message, line) {
@@ -266,8 +266,6 @@ export default class Stack {
     const msgType = msg.msg_type;
     const msgValues = msg.msg_values;
 
-    console.log(msgType, msgValues)
-
     this.lastMessageDuration = 0;
 
     if (
@@ -276,7 +274,6 @@ export default class Stack {
     ) {
       return;
     }
-
     switch (msgType) {
       case 'route':
         this.registerTimeout = this.REGISTER_DELAY;
