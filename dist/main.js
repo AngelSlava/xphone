@@ -65,8 +65,8 @@ const app = new Vue({
     const vm = this
     this.$phone = initXphone(vm)
     this.$phone.init({
-      login: "1119837",
-      password: "bf00ffae99aa22e5f4d568554e13b92a"
+      login: "1119685",
+      password: "d467cecdef7aa39f9494b1e5b5035754"
     })
   },
   methods: {

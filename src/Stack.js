@@ -165,7 +165,7 @@ export default class Stack {
   }
 
   onMessageIn(messageData) {
-    return messageData;
+    return messageData
   }
 
   sendMessage(modemId, groupId, text) {
@@ -266,7 +266,7 @@ export default class Stack {
     const msgType = msg.msg_type;
     const msgValues = msg.msg_values;
 
-    console.log(msgType)
+    console.log(msgType, msgValues)
 
     this.lastMessageDuration = 0;
 
